@@ -1,5 +1,9 @@
 package ui;
 
-public class StatusBar {
+import javax.swing.*;
 
+public class StatusBar extends JPanel {
+    public StatusBar() {
+
+    }
 }

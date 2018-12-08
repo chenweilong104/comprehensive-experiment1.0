@@ -20,7 +20,7 @@ public class Main {
         //插入菜单栏
         menu.setBounds(30,32,800,10);
         myJFrame.setJMenuBar(menu);
-
-
+        System.out.println("gao"+myJPanel.size().getHeight());
+        System.out.println("long"+myJPanel.size().getWidth());
     }
 }
