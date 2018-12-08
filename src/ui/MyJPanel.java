@@ -19,7 +19,7 @@ public class MyJPanel extends JPanel {
     private void initComponent() {
 
         add(new SearchJPanel());
-        add(new CenterJP());
+        add(new CenterJPanel());
     }
 
 }
