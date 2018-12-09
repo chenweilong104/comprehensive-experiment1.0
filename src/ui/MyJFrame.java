@@ -25,6 +25,7 @@ public class MyJFrame extends JFrame {
         this.setSize(WINDOW_WIDTH,WINDOW_HEIGHT);
         //设置默认Panel
         this.setContentPane(myJpanel);
+
         this.setVisible(true);
 
 

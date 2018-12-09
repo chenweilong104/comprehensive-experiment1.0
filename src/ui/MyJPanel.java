@@ -8,7 +8,7 @@ import java.awt.*;
 
 public class MyJPanel extends JPanel {
     public MyJPanel(Dto dto) {
-        this.setLayout(new FlowLayout(0,1,0));
+        this.setLayout(new FlowLayout(0,1,1));
         //初始化组件
         initComponent();
 
@@ -20,6 +20,7 @@ public class MyJPanel extends JPanel {
 
         add(new SearchJPanel());
         add(new CenterJPanel());
+        add(new StatusBarJPanel());
     }
 
 }
