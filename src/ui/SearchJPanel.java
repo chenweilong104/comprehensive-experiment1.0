@@ -7,7 +7,7 @@ public class SearchJPanel extends JPanel {
 
     public SearchJPanel() {
 
-        this.setPreferredSize(new Dimension(794,36));
+        //this.setPreferredSize(new Dimension(794,36));
         this.setLayout(new FlowLayout(0));
         this.setBorder(BorderFactory.createRaisedBevelBorder());
         //搜索框

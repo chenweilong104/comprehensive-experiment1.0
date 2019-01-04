@@ -1,5 +1,7 @@
 package dto;
 
+import ui.MyJPanel;
+
 import javax.swing.*;
 import java.io.File;
 
@@ -14,7 +16,23 @@ public class Dto {
      */
     private File file;
 
+    /**
+     * 数据
+     */
     private String[][] strings;
+
+    /**
+     * 底层画布
+     */
+    private MyJPanel myJPanel;
+
+    public MyJPanel getMyJPanel() {
+        return myJPanel;
+    }
+
+    public void setMyJPanel(MyJPanel myJPanel) {
+        this.myJPanel = myJPanel;
+    }
 
     private JTable jTable;
 

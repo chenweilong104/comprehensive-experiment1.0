@@ -9,7 +9,7 @@ import java.awt.*;
 public class CenterJPanel extends JPanel {
     private Dto dto;
     public CenterJPanel(Dto dto) {
-        this.setLayout(null);
+        this.setLayout(new BorderLayout());
         this.dto=dto;
         this.setPreferredSize(new Dimension(794,610));
         JLabel jLabel1 = new JLabel("成绩单");
@@ -23,8 +23,8 @@ public class CenterJPanel extends JPanel {
         this.setBorder(BorderFactory.createRaisedBevelBorder());
 
 
-        JScrollPane jScrollPane= this.setJT();
-        leftJP.add(jScrollPane);
+
+
         add(leftJP);
         add(rightJP);
 
@@ -36,25 +36,7 @@ public class CenterJPanel extends JPanel {
         jPanel.setBorder(BorderFactory.createLoweredBevelBorder());
         return jPanel;
     }
-    private  JScrollPane setJT(){
-        String[] n = { "学号", "姓名", "成绩"};
-        String[][] s;
-        s=new String[40][3];
 
-
-        DefaultTableModel defaultTableModel = new DefaultTableModel(s,n);
-
-        JTable jTable = new JTable(defaultTableModel){
-            public boolean isCellEditable(int row, int column)
-            {
-            return false;}//表格不允许被编辑
-        };
-        dto.setjTable(jTable);
-        JScrollPane jScrollPane = new JScrollPane(jTable);
-        jScrollPane.setPreferredSize(new Dimension(350,540));
-        return jScrollPane;
-
-    }
 
 
 
