@@ -16,7 +16,7 @@ public class MyJFrame extends JFrame {
         //居中
         Toolkit toolkit = Toolkit.getDefaultToolkit();
         //不允许用户改变窗口大小
-        this.setResizable(false);
+        //this.setResizable(false);
         Dimension screen = toolkit.getScreenSize();
         int x = screen.width- WINDOW_WIDTH>> 1;
         int y = screen.height-WINDOW_HEIGHT >> 1 ;

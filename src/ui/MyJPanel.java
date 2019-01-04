@@ -10,7 +10,7 @@ public class MyJPanel extends JPanel {
     private Dto dto;
     public MyJPanel(Dto dto) {
         this.dto=dto;
-        this.setLayout(new FlowLayout(0,1,1));
+        this.setLayout(new BorderLayout());
         //初始化组件
         initComponent();
 
@@ -20,9 +20,9 @@ public class MyJPanel extends JPanel {
 
     private void initComponent() {
 
-        add(new SearchJPanel());
-        add(new CenterJPanel(dto));
-        add(new StatusBarJPanel());
+        add("North",new SearchJPanel());
+        add("Center", new CenterJPanel(dto));
+        add("South", new StatusBarJPanel());
     }
 
 }

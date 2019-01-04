@@ -14,13 +14,14 @@ public class Main {
 
         //创建面板
         MyJPanel myJPanel = new MyJPanel(dto);
-
-        //创建窗口
-        MyJFrame myJFrame=new MyJFrame(myJPanel);
         Menu menu = new Menu(dto);
         //插入菜单栏
         menu.setBounds(30,32,800,10);
+        MyJFrame myJFrame=new MyJFrame(myJPanel);
         myJFrame.setJMenuBar(menu);
+        //创建窗口
+
+
 //        System.out.println("gao"+myJPanel.size().getHeight());
 //        System.out.println("long"+myJPanel.size().getWidth());
     }
