@@ -1,6 +1,5 @@
 package ui;
 
-import cfg.Cfg;
 import dto.Dto;
 
 import javax.swing.*;
@@ -8,22 +7,15 @@ import java.awt.*;
 
 public class MyJFrame extends JFrame {
 
-    private int WINDOW_WIDTH = Cfg.getWindowWidth();
-    private int WINDOW_HEIGHT = Cfg.getWindowHeight();
+
     public MyJFrame(Dto dto){
+        final int WINDOW_WIDTH = 857;
+        final int WINDOW_HEIGHT = 750;
         this.setTitle("成绩分析程序");
         //设置默认关闭属性（程序结束）
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        //居中
-        Toolkit toolkit = Toolkit.getDefaultToolkit();
-        //不允许用户改变窗口大小
-        //this.setResizable(false);
-        Dimension screen = toolkit.getScreenSize();
-        int x = screen.width- WINDOW_WIDTH>> 1;
-        int y = screen.height-WINDOW_HEIGHT >> 1 ;
-        this.setLocation(x,y);
-        //设置窗口大小
-        this.setSize(WINDOW_WIDTH,WINDOW_HEIGHT);
+        //设置居中，窗体大小
+        atCenter(this,WINDOW_WIDTH, WINDOW_HEIGHT);
         //新建菜单
         Menu menu = new Menu(dto);
         //插入菜单栏
@@ -31,10 +23,25 @@ public class MyJFrame extends JFrame {
         setJMenuBar(menu);
         this.setLayout(new BorderLayout());
         //设置默认Panel
-        this.setContentPane(dto.getMyJPanel());
+
+        add("North",new SearchJPanel(dto));
+        add("Center", new CenterJPanel(dto));
+        add("South", new StatusBarJPanel(dto));
         this.setVisible(true);
-        add("North",new SearchJPanel());
-        add("West", new LeftJPanel(dto));
-        add("South", new StatusBarJPanel());
+    }
+
+    /**
+     *
+     * @param window 窗体
+     * @param width 窗体的长
+     * @param height 窗体的宽
+     */
+    static void atCenter(Window window,int width,int height){
+        Toolkit toolkit = Toolkit.getDefaultToolkit();
+        Dimension screen = toolkit.getScreenSize();
+        int x = screen.width- width>> 1;
+        int y = screen.height-height >> 1 ;
+        window.setLocation(x,y);
+        window.setSize(width,height);
     }
 }

@@ -1,37 +1,67 @@
 package dto;
 
-import ui.MyJPanel;
+import service.DateService;
+import service.FileService;
 
 import javax.swing.*;
 import java.io.File;
 
 public class Dto {
-    /**
-     * 菜单
-     */
-    private JMenu jMenu;
+
+    private FileService fileService;
+
+    private DateService dateService;
 
     /**
-     * 文件
+     * 下方的文件路径与文件名
      */
-    private File file;
+    private JLabel PathAndNameOfFileOfJLabel;
 
-    /**
-     * 数据
-     */
-    private String[][] strings;
 
-    /**
-     * 底层画布
-     */
-    private MyJPanel myJPanel;
+    private JLabel[] jPoint;
+    private JLabel[] people;
+    private JLabel[] precent;
 
-    public MyJPanel getMyJPanel() {
-        return myJPanel;
+
+
+    public DateService getDateService() {
+        return dateService;
     }
 
-    public void setMyJPanel(MyJPanel myJPanel) {
-        this.myJPanel = myJPanel;
+    public void setDateService(DateService dateService) {
+        this.dateService = dateService;
+    }
+
+    public JLabel getPathAndNameOfFileOfJLabel() {
+        return PathAndNameOfFileOfJLabel;
+    }
+
+    public void setPathAndNameOfFileOfJLabel(JLabel pathAndNameOfFileOfJLabel) {
+        PathAndNameOfFileOfJLabel = pathAndNameOfFileOfJLabel;
+    }
+
+    public JLabel[] getjPoint() {
+        return jPoint;
+    }
+
+    public void setjPoint(JLabel[] jPoint) {
+        this.jPoint = jPoint;
+    }
+
+    public JLabel[] getPeople() {
+        return people;
+    }
+
+    public void setPeople(JLabel[] people) {
+        this.people = people;
+    }
+
+    public JLabel[] getPrecent() {
+        return precent;
+    }
+
+    public void setPrecent(JLabel[] precent) {
+        this.precent = precent;
     }
 
     private JTable jTable;
@@ -44,36 +74,16 @@ public class Dto {
         this.jTable = jTable;
     }
 
-
-    public String[][] getStrings() {
-        return strings;
+    public FileService getFileService() {
+        return fileService;
     }
 
-    public void setStrings(String[][] strings) {
-        this.strings = strings;
-    }
-
-    public File getFile() {
-        return file;
-    }
-
-    public void setFile(File file) {
-        this.file = file;
-    }
-
-    public JMenu getjMenu() {
-        return jMenu;
-    }
-
-    public void setjMenu(JMenu jMenu) {
-        this.jMenu = jMenu;
+    public void setFileService(FileService fileService) {
+        this.fileService = fileService;
     }
 
     public Dto() {
-        dtoInit();
+
     }
 
-    private void dtoInit() {
-        this.strings=null;
-    }
 }

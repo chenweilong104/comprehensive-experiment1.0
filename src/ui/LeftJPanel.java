@@ -6,26 +6,37 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 
-public class LeftJPanel extends JPanel {
+/**
+ * 成绩单
+ */
+class LeftJPanel extends JPanel {
 
     private Dto dto;
-    public LeftJPanel(Dto dto) {
+
+    LeftJPanel(Dto dto) {
         this.dto=dto;
-        this.setLayout(new BorderLayout(10,10));
-        JLabel jLabel1 = new JLabel("成绩单");
+        this.setLayout(new BorderLayout(5,5));
+        this.setBorder(BorderFactory.createRaisedBevelBorder());
+        JLabel jLabel1 = new JLabel("   成绩单");
+        this.add("West",new JPanel());
+        this.add("East",new JPanel());
         this.add("North",jLabel1);
-        JScrollPane jScrollPane= this.setJT();
-        this.add(jScrollPane);
+        this.add("Center",this.createJTable());
+        this.add("South",new JPanel());
 
     }
-    private  JScrollPane setJT(){
+
+    /**
+     * 创建一个空白成绩单
+     * @return 返回含空白成绩单的JPanel面板
+     */
+    private JPanel createJTable(){
+        JPanel jPanel = new JPanel();
+        jPanel.setBorder(BorderFactory.createLoweredBevelBorder());
+        jPanel.setLayout(new BorderLayout(3,3));
         String[] n = { "学号", "姓名", "成绩"};
-        String[][] s;
-        s=new String[40][3];
-
-
+        String[][] s=new String[40][3];
         DefaultTableModel defaultTableModel = new DefaultTableModel(s,n);
-
         JTable jTable = new JTable(defaultTableModel){
             public boolean isCellEditable(int row, int column)
             {
@@ -33,8 +44,13 @@ public class LeftJPanel extends JPanel {
         };
         dto.setjTable(jTable);
         JScrollPane jScrollPane = new JScrollPane(jTable);
-        jScrollPane.setPreferredSize(new Dimension(350,540));
-        return jScrollPane;
+        jPanel.add("Center",jScrollPane);
+        //填充边界
+        jPanel.add("West",new JPanel());
+        jPanel.add("East",new JPanel());
+        jPanel.add("North",new JPanel());
+        jPanel.add("South",new JPanel());
+        return jPanel;
 
     }
 }
